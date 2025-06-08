@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+     <title>Ingilis-Dili</title>
+     <style>
+          * {
+               padding: 0px;
+               margin: 0px;
+               box-sizing: border-box;
+               font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          }
+
+
+
+          body {
+               display: flex;
+               flex-direction: column;
+               justify-content: center;
+               align-items: center;
+               min-height: 100vh;
+               gap: 50px;
+               padding: 10px;
+          }
+
+          .testBox {
+               display: flex;
+               flex-direction: column;
+               gap: 20px;
+               width: 100%;
+
+          }
+
+          .testBox .nn {
+               display: grid;
+               grid-template-columns: 70px 75%;
+               grid-template-rows: repeat(5, auto);
+               gap: 10px;
+          }
+
+          .Result {
+               width: 90%;
+               display: none;
+               justify-content: center;
+               grid-template-columns: repeat(2, 40%);
+               grid-template-rows: repeat(3, 70px);
+               gap: 10px;
+          }
+
+          .Result span {
+               line-height: 70px;
+               text-align: center;
+               font-size: 24px;
+               background-color: aliceblue;
+               border: 1px solid rgb(17, 73, 177)
+          }
+
+          .Result button {
+               grid-area: 4/1/4/3;
+               height: 60px;
+               font-size: 25px;
+               background-color: rgb(17, 73, 177);
+               border: none;
+               border-radius: 10px;
+               color: #Fff;
+               transition: 0.1s;
+
+          }
+
+          .Result h1 {
+               grid-area: 5/1/5/3;
+               font-size: 20px;
+               width: 100%;
+          }
+
+          .Result button:active {
+               scale: 1.1;
+          }
+
+          .container {
+               margin-top: 110px;
+               display: flex;
+               flex-direction: column;
+               gap: 30px;
+               width: 100%;
+          }
+
+          .testBox h3 {
+               font-size: 23px;
+               word-wrap: break-word;
+          }
+
+          .testBox p {
+               line-height: 1.2;
+               font-size: 20px;
+               word-wrap: break-word;
+
+
+          }
+
+          .btn {
+               font-size: 20px;
+               background-color: rgb(17, 73, 177);
+               border: none;
+               color: #fff;
+               font-weight: 500;
+               min-height: 40px;
+               border-radius: 5px;
+               transition: 0.3s;
+          }
+
+          .fa-xmark {
+               color: rgb(94, 14, 14);
+          }
+
+          .btn:active {
+               scale: 1.1;
+          }
+
+          .fennadi {
+               width: 100%;
+               height: 100px;
+               position: fixed;
+               top: 0;
+               text-align: center;
+               background-color: #fff;
+               line-height: 100px;
+               box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+
+          }
+
+
+          .control {
+               display: flex;
+               justify-content: space-around;
+               align-items: center;
+               width: 100%;
+          }
+
+          .control button {
+               width: 150px;
+               height: 50px;
+               background-color: rgb(17, 73, 177);
+               border: none;
+               color: #Fff;
+               font-size: 20px;
+               border-radius: 10px;
+               transition: 0.2s;
+               -webkit-tap-highlight-color: transparent;
+          }
+
+          .resultQuiz {
+               display: none;
+               margin-top: 100px;
+               flex-direction: column;
+               p{
+                    font-size: 20px;
+                    padding: 4px 30px;
+               }
+               h3{
+                    font-size: 26px;
+                    padding-top: 16px;
+                    padding: 4px 16px;
+
+               }
+          }
+
+          .control button:active {
+               scale: 1.1;
+          }
+
+          @media (min-width: 600px) {
+               .container {
+                    width: 100%;
+                    height: 100vh;
+
+               }
+
+               .testBox {
+                    width: 100%;
+               }
+
+          }
+
+          i {
+               margin-left: 20px;
+          }
+
+          .lock-window {
+               display: none;
+               justify-content: center;
+               align-items: center;
+               min-height: 100%;
+               width: 100%;
+               position: absolute;
+               background-color: rgba(0, 0, 0, 0.582);
+               z-index: 100;
+               top: 0px;
+               left: 0px;
+          }
+
+          .lock-window .form {
+               display: flex;
+               flex-direction: column;
+               gap: 20px;
+
+               input {
+                    padding: 10px 20px;
+                    outline: none;
+                    border: none;
+               }
+
+               button {
+                    padding: 10px 12px 12px 12px;
+                    font-size: 20px;
+                    border-radius: 20px;
+                    border: none;
+                    font-weight: 500;
+                    background-color: green;
+                    color: #fff;
+
+               }
+          }
+     </style>
+</head>
+
+<body>
+     <h1 class="fennadi" style="font-size: 20px;">Riyazi Proqram Paketləri Sınaq</h1>
+     <div class="container">
+
+          <div class="testBox">
+               <h3> QUESTİON H3 </h3>
+               <div class="nn">
+                    <button class="btn A">A</button>
+                    <p> VARİANT A
+                    </p>
+                    <button class="btn B">B</button>
+                    <p>VARİANT B</p>
+                    <button class="btn C">C</button>
+                    <p>VARİANT C</p>
+                    <button class="btn D">D</button>
+                    <p>VARİANT D</p>
+                    <button class="btn E">E</button>
+                    <p>VARİANT E</p>
+               </div>
+
+          </div>
+
+          <div class="control">
+               <button onclick="prev()" class="prev">Geri</button>
+               <button onclick="next(this)" class="next">İrəli</button>
+          </div>
+     </div>
+
+     <div class="Result">
+          <span>Doğru: </span> <span>00 </span>
+          <span>Səhv: </span> <span>00</span>
+          <span>Doğruluq Faizlə </span> <span>00 </span>
+          <button onclick="quizWiev()">Testə Baxış</button>
+          <h1>Hazırladı: Melikov Huseyn (HTML, CSS , JavaScript , GitHub) </h1>
+          <a href="https://github.com/HUSEYNMELIKOV">GitHub hesabım</a>
+     </div>
+
+     <div class="resultQuiz">
+
+     </div>
+     
+
+     <script>
+          const testBox = document.querySelector(".testBox");
+          const container = document.querySelector(".container");
+          const result = document.querySelector(".Result");
+          const resultquiz = document.querySelector(".resultQuiz");
+          let password;
+          if (localStorage.getItem("data")) {
+               password = JSON.parse(localStorage.getItem("data"));
+          } else {
+               password = [{ parol: "CGAIX", status: false }, { parol: "ASMBA", status: false }, { parol: "SESLO", status: false }, { parol: "QAFRI", status: false }, { parol: "PENDIR", status: "always-open" }];
+          }
+
+          localStorage.setItem("data", JSON.stringify(password));
+
+          function checkPassword(btn) {
+               let input = (btn.parentElement).querySelector("input");
+               password = JSON.parse(localStorage.getItem("data"));
+               password.forEach(obj => {
+                    if (obj.parol == input.value) {
+                         if (obj.status == false) {
+                              (btn.parentElement).parentElement.style.display = "none";
+                              obj.status = true;
+                         } else if (obj.status == true) {
+                              input.value = ""
+                              input.placeholder = "Bu parol istifadə olundu"
+                         }
+                         if (obj.status == "always-open") {
+
+                              (btn.parentElement).parentElement.style.display = "none";
+                         }
+                    }
+               });
+               localStorage.setItem("data", JSON.stringify(password));
+
+
+          }
+
+          const Cavab = [];
+          let DATA =
+               [
+                    {
+                         "question": "1.(çətinlik dərəcəsi:3) Matlab-da к-n sonuncu qiyməti neçəyə bərabərdir, əgər k=0; for i=0:2^3:36  k=k+1;  x(k)=2*i-3;  end?",
+                         "options": {
+                              "A": "2",
+                              "B": "0",
+                              "C": "3",
+                              "D": "5",
+                              "E": "1"
+                         },
+                         "correct_answer": "D"
+                    },
+                    {
+                         "question": "2.(çətinlik dərəcəsi:3) Matlab-da x dəyişəni hansı qiymətləri alır, əgər k=0; for i=0:2^2:15 k=k+1;   if i>10  x(k)=2*i-3;     else x(k)=2*i+3;    end end",
+                         "options": {
+                              "A": "3 11 19 21",
+                              "B": "-3 11 19 21",
+                              "C": "-3 13 19 21",
+                              "D": "-3 13 19 29",
+                              "E": "3 11 19 29"
+                         },
+                         "correct_answer": "A"
+                    },
+                    {
+                         "question": "3.(çətinlik dərəcəsi:3) Matlab-da x massivdə neçə dənə sıfır elementi vardır, əgər k=10; for i=15:-2:-1   k=k+1;   if i<7  x(k)=2*i+20;    else x(k)=2*(-1)*i;    end   end?",
+                         "options": {
+                              "A": "5",
+                              "B": "9",
+                              "C": "10",
+                              "D": "3",
+                              "E": "1"
+                         },
+                         "correct_answer": "C"
+                    },
+                    {
+                         "question": "4.(çətinlik dərəcəsi:3) Matlab-da nəticə neçəyə bərabərdir, əgər x3=[-4 15;-6 3; 12 3 ]; sum(x3(1,:))?",
+                         "options": {
+                              "A": "12",
+                              "B": "11",
+                              "C": "21",
+                              "D": "15",
+                              "E": "-6"
+                         },
+                         "correct_answer": "B"
+                    },
+                    {
+                         "question": "5.(çətinlik dərəcəsi:2) Matlab-da nəticə neçəyə bərabərdir: det(a), əgər a=[1 3;5 7]?",
+                         "options": {
+                              "A": "15",
+                              "B": "8",
+                              "C": "1",
+                              "D": "3",
+                              "E": "-8"
+                         },
+                         "correct_answer": "E"
+                    },
+                    {
+                         "question": "6. (çətinlik dərəcəsi:1) Matlab-da nəticə neçəyə bərabərdir, əgər [x]=fun1_1(10)	function f=fun1_1(x)   f=0.5*x-1;?",
+                         "options": {
+                              "A": "4",
+                              "B": "5",
+                              "C": "3",
+                              "D": "0.5",
+                              "E": "10"
+                         },
+                         "correct_answer": "A"
+                    },
+                    {
+                         "question": "7. (çətinlik dərəcəsi:2) Matlab-da nəticə neçəyə bərabərdir: x=fzero(@fun1,[0  2]), əgər function f=fun1(x) f=2*x^2-x-1;",
+                         "options": {
+                              "A": "1.5",
+                              "B": "0",
+                              "C": "2",
+                              "D": "0.5",
+                              "E": "1"
+                         },
+                         "correct_answer": "E"
+                    },
+                    {
+                         "question": "8. (çətinlik dərəcəsi:1) Matlab-da natural loqarifm hansı funksiyanın köməyi ilə hesablanır?",
+                         "options": {
+                              "A": "log(x)",
+                              "B": "log10(x)",
+                              "C": "ln(x)",
+                              "D": "log2(x)",
+                              "E": "log2.71(x)"
+                         },
+                         "correct_answer": "A"
+                    },
+                    {
+                         "question": "9. (çətinlik dərəcəsi:1) Matlab-da natural loqarifm hansı funksiyanın köməyi ilə hesablanır?",
+                         "options": {
+                              "A": "log2(x)",
+                              "B": "log10(x)",
+                              "C": "ln(x)",
+                              "D": "log(x)",
+                              "E": "log2.71(x)"
+                         },
+                         "correct_answer": "D"
+                    },
+                    {
+                         "question": "10. (çətinlik dərəcəsi:1) Matlab-da nəticə neçəyə bərabərdir: sign(89.65)?",
+                         "options": {
+                              "A": "1",
+                              "B": "0",
+                              "C": "- 1",
+                              "D": "90",
+                              "E": "89.7"
+                         },
+                         "correct_answer": "A"
+                    },
+                    {
+                         "question": "11. (çətinlik dərəcəsi:2) Matlab-da nəticə neçəyə bərabərdir: sin(pi)+cos(pi)?",
+                         "options": {
+                              "A": "0",
+                              "B": "1",
+                              "C": "-1",
+                              "D": "pi",
+                              "E": "3.14"
+                         },
+                         "correct_answer": "C"
+                    },
+                    {
+                         "question": "12. (çətinlik dərəcəsi:1) Aşağıdakıların hansında istifadəçi proqramın cari iş rejimi, cari VB faylının adını və s haqqında məlumatlar tapa bilər?",
+                         "options": {
+                              "A": "vəziyyət sətri",
+                              "B": "menyu sətri",
+                              "C": "alətlər paneli",
+                              "D": "fırlatma xətkeşi",
+                              "E": "diqtə sətri"
+                         },
+                         "correct_answer": "A"
+                    },
+                    {
+                         "question": "13. (çətinlik dərəcəsi:2) VB sahəsinin xüsusiyyəti hansıdır?",
+                         "options": {
+                              "A": "həcm",
+                              "B": "sorğu",
+                              "C": "format",
+                              "D": "uzunluq",
+                              "E": "sətrlşrin miqdarı"
+                         },
+                         "correct_answer": "D"
+                    },
+                    {
+                         "question": "14. (çətinlik dərəcəsi:1) Verilənlər bazasında xarici açar (Foreign Key) nədir?",
+                         "options": {
+                              "A": "Cədvəllər arasında əlaqə qurmaq üçün istfadə olunan açardır",
+                              "B": "Cədvəldə birinci sütundur",
+                              "C": "Əsas açarın (Primary Key) sinonimidir",
+                              "D": "Cədvəldə yazıları birqiymətli təyin edən bir və ya bir neçə sütundur",
+                              "E": "Cədvəldə axırıncı sütundur"
+                         },
+                         "correct_answer": "A"
+                    },
+                    {
+                         "question": "15. (çətinlik dərəcəsi:1) RelyasiyaVerilənlər bazası idarəetmə sistemlərində məlumatlar hansı formatda saxlanılır?",
+                         "options": {
+                              "A": "Mətn və səs formatında",
+                              "B": "Cədvəl formatında",
+                              "C": "qrafik formatında",
+                              "D": "səs formatında",
+                              "E": "qrafik və səs formatında"
+                         },
+                         "correct_answer": "B"
+                    },
+                    {
+                         "question": "16. (çətinlik dərəcəsi:1) Saat 12:00-a qədər və ya 18:00-dan sonra şərtini MS Access proqramında necə vermək olar?",
+                         "options": {
+                              "A": "<12:00 or >18:00",
+                              "B": "<12:00 and< 18:00",
+                              "C": "<12:00 or< 18:00",
+                              "D": ">12:00 or >18:00",
+                              "E": "<12:00 and >18:00"
+                         },
+                         "correct_answer": "A"
+                    },
+                    {
+                         "question": "17. (çətinlik dərəcəsi:1) Verilənlər bazasının İyerarxik modelində verilənlərin axtarışı hansı istiqamətdə aparılır?",
+                         "options": {
+                              "A": "Aşağıdan yuxarı",
+                              "B": "Sağdan sola",
+                              "C": "Yuxarıdan aşağı",
+                              "D": "Soldan sağa",
+                              "E": "Bütün istiqamətlərdə"
+                         },
+                         "correct_answer": "C"
+                    },
+                    {
+                         "question": "18. (çətinlik dərəcəsi:1) Aşağıdakıların hansı həm son istifadəçilərə, həm də verilənlərin emalı sahəsinin mütəxəssislərinə yüksək imkanlar təqdim edən sorğu dilidir?",
+                         "options": {
+                              "A": "SQL",
+                              "B": "QBE",
+                              "C": "verilənlərin emalı dili",
+                              "D": "verilənlərlə manipulyasiya dili",
+                              "E": "C++"
+                         },
+                         "correct_answer": "A"
+                    },
+                    {
+                         "question": "19. MEMO tipli sahənin təyinatı",
+                         "options": {
+                              "A": "böyük həcmli mətnlərin saxlanması",
+                              "B": "məhdud miqdarda mətnlərin saxlanması",
+                              "C": "şəkillərin, kliplərin və videoyazıların saxlanması",
+                              "D": "ancaq iki qiymət ala bilən verilənlərin saxlanması",
+                              "E": "avtomatik artıma malik verilənlərin saxlanması"
+                         },
+                         "correct_answer": "A"
+                    },
+                    {
+                         "question": "20. RelyasiyaVerilənlər bazası idarəetmə sistemlərində məlumatlar hansı formatda saxlanılır?",
+                         "options": {
+                              "A": "səs formatında",
+                              "B": "Mətn və səs formatında",
+                              "C": "qrafik formatında",
+                              "D": "Cədvəl formatında",
+                              "E": "qrafik və səs formatında"
+                         },
+                         "correct_answer": "D"
+                    },
+                    {
+                         "question": "21. Əlavələrin hazırlanmasının alətlərinin elementi hansıdir?",
+                         "options": {
+                              "A": "Başqa proqram vasitələri tərəfindən hazırlanmış informasiyaların VBİS-də emalı imkanı",
+                              "B": "Verilənlər bazasının, faylın, yazının, sahənin blokirovkası",
+                              "C": "Blokirovka qoyan stansiyanın identifikasiyası",
+                              "D": "Modifikasiyadan sonra informasiyaların yenilənməsi",
+                              "E": "Güclü proqramlaşdırma dili imkanı"
+                         },
+                         "correct_answer": "E"
+                    },
+                    {
+                         "question": "22. Mövcud VB-nin açılması hansı əmrlər qrupuna aiddir?",
+                         "options": {
+                              "A": "fayllarla iş əmrləri",
+                              "B": "redaktə əmrləri",
+                              "C": "formatlaşdırma əmrləri",
+                              "D": "pəncərələrlə iş əmrləri",
+                              "E": "arayış informasiyalarının alınması sisteminin əmrləri"
+                         },
+                         "correct_answer": "A"
+                    },
+                    {
+                         "question": "23. (çətinlik dərəcəsi:1) Hansı əməliyyatın icrasının nəticəsi müvəqqəti verilənlənlər yığımı cədvəlidir?",
+                         "options": {
+                              "A": "cədvəl tərtibinin",
+                              "B": "formanın",
+                              "C": "sorğunun",
+                              "D": "hesabatın icrasının",
+                              "E": "doğru cavab yoxdur"
+                         },
+                         "correct_answer": "C"
+                    },
+                    {
+                         "question": "24. (çətinlik dərəcəsi:1) “Sahənin tipi” VB-nin hansı xarakteristikasını əks etdirir?",
+                         "options": {
+                              "A": "sahənin xüsusiyyətlərindən biridir",
+                              "B": "unikal sahədir",
+                              "C": "açar sahədir",
+                              "D": "əlaqə sahəsidir",
+                              "E": "vacib sahədir"
+                         },
+                         "correct_answer": "A"
+                    },
+                    {
+                         "question": "25. (çətinlik dərəcəsi:1) Verilənlər bazasının layihələndirilməsi zamanı hansı işlər görülür?",
+                         "options": {
+                              "A": "Nisbətlər təsvir olunur və əlaqələndirilir",
+                              "B": "Verilənlərin tamlığı və dəqiqliyi yoxlanılır",
+                              "C": "Verilənlər bazası faylları reallaşdırılır",
+                              "D": "Verilənlər bazası fayllarının sahələri adlandırılır",
+                              "E": "Nisbətlərin kortejləri yazılır"
+                         },
+                         "correct_answer": "E"
+                    },
+                    {
+                         "question": "26. (çətinlik dərəcəsi:1) «İnsanlar» və «Şəxsiyyət vəsiqələri» çoxluqlarının elementləri arasında hansı münasibət mövcuddur?",
+                         "options": {
+                              "A": "Birin-çoxa",
+                              "B": "Birin-birə",
+                              "C": "Çoxun-birə",
+                              "D": "Çoxun-çoxa",
+                              "E": "Azın-çoxa"
+                         },
+                         "correct_answer": "B"
+                    },
+                    {
+                         "question": "27. (çətinlik dərəcəsi:2) Verilənlər bazası fayllarında yazıların silinməsi üçün neçə üsuldan istifadə olunur?",
+                         "options": {
+                              "A": "3",
+                              "B": "1",
+                              "C": "4",
+                              "D": "2",
+                              "E": "5"
+                         },
+                         "correct_answer": "D"
+                    },
+                    {
+                         "question": "28. (çətinlik dərəcəsi:1) Microsoft Word proqramında mübadilə buferi ilə bağlı əmrlər hansı menyuda yerləşmişdir?",
+                         "options": {
+                              "A": "File (Fayl)",
+                              "B": "Edit (Redaktə)",
+                              "C": "Home (Ev)",
+                              "D": "İnsert (Əlavə et)",
+                              "E": "Review (Gözdən keçirmə/icmal)"
+                         },
+                         "correct_answer": "C"
+                    },
+                    {
+                         "question": "29. (çətinlik dərəcəsi:1) MS Exceldə E2 xanası 16, E5 xanası 3, E7 xanası 5-dirsə, düstura əsasən E8-in qiyməti nədir? =2*E2+8/(E7-E5)",
+                         "options": {
+                              "A": "12",
+                              "B": "36",
+                              "C": "8",
+                              "D": "4",
+                              "E": "20"
+                         },
+                         "correct_answer": "B"
+                    },
+                    {
+                         "question": "30. (çətinlik dərəcəsi:1) Word redaktorunda mətnin, abzasın və siyahıların formatlaşdırılması üçün istifadə olunan bölmələr (əmrlər) menyunun hansı bəndində yerləir.",
+                         "options": {
+                              "A": "Review",
+                              "B": "File",
+                              "C": "Format",
+                              "D": "Mailings",
+                              "E": "Home"
+                         },
+                         "correct_answer": "E"
+                    },
+                    {
+                         "question": "31. (çətinlik dərəcəsi:1) Word redaktorunda mətnin parametrlərini nə vaxt dəyişdirmək mümkündür.",
+                         "options": {
+                              "A": "İxtiyarı vaxt",
+                              "B": "Sənədi redaktə etməmişdən əvvəl",
+                              "C": "Sənədi redaktə etdikdən sonra",
+                              "D": "Sənəd müdafiə olunmayıbsa",
+                              "E": "Sənədi formatlaşdirdıqdan sonra"
+                         },
+                         "correct_answer": "D"
+                    },
+                    {
+                         "question": "32. (çətinlik dərəcəsi:1) Word redaktorunda qrammatik və orfoqrafik yazı qaydalarının təyini hansı menyu əmrinin köməyi ilə aparılır.",
+                         "options": {
+                              "A": "Review–Options",
+                              "B": "View–Print Layout",
+                              "C": "File–Page Setup",
+                              "D": "File–Options",
+                              "E": "Home–Options"
+                         },
+                         "correct_answer": "D"
+                    },
+                    {
+                         "question": "33. (çətinlik dərəcəsi:1) Word redaktorunda abzasın əsas parametrlərini göstərin.",
+                         "options": {
+                              "A": "Boşluq, interval",
+                              "B": "Stil, format",
+                              "C": "Sahə, oriyentasiya",
+                              "D": "Stil, şablon",
+                              "E": "Format, şablon"
+                         },
+                         "correct_answer": "A"
+                    },
+                    {
+                         "question": "34. (çətinlik dərəcəsi:1) Word redaktorunda mətnə daxil edilmiş şəkil və qrafikin xüsusiyyətləri hansı əmrlər qrupu ilə təyin edilir.",
+                         "options": {
+                              "A": "Format-Picture Tools",
+                              "B": "View- Picture",
+                              "C": "Insert-File",
+                              "D": "Edit-Object",
+                              "E": "File-Object"
+                         },
+                         "correct_answer": "A"
+                    },
+                    {
+                         "question": "35. (çətinlik dərəcəsi:3) Matlab-da nəticə neçəyə bərabərdir, əgər x2=[3 -4 5;-6 5 3]; mx=0; for i=1:2  for j=1:3   if x2(i,j)>0 mx=mx+x2(i,j); end   end   end?",
+                         "options": {
+                              "A": "16",
+                              "B": "6",
+                              "C": "-10",
+                              "D": "26",
+                              "E": "36"
+                         },
+                         "correct_answer": "A"
+                    },
+                    {
+                         "question": "36. Matlab-da nəticə neçəyə bərabərdir: x=fzero(@fun1,[1.5  2.5]), əgər function f=fun1(x) f=0.25*x-1;",
+                         "options": {
+                              "A": "2",
+                              "B": "-2",
+                              "C": "-1",
+                              "D": "0",
+                              "E": "1.5"
+                         },
+                         "correct_answer": "A"
+                    },
+                    {
+                         "question": "37. Matlab-da nəticə neçəyə bərabərdir: acos(-1)?",
+                         "options": {
+                              "A": "1",
+                              "B": "1.5708",
+                              "C": "0",
+                              "D": "3.1416",
+                              "E": "-1"
+                         },
+                         "correct_answer": "D"
+                    },
+                    {
+                         "question": "38. Matlab-da x(1) neçəyə bərabərdir, əgər k=11; for i=15:-2:-1 k=k-1; if i~=11 x(k)=2*i-20; else x(k)=2*i; end end?",
+                         "options": {
+                              "A": "10",
+                              "B": "0",
+                              "C": "-22",
+                              "D": "-10",
+                              "E": "-18"
+                         },
+                         "correct_answer": "B"
+                    },
+                    {
+                         "question": "39. Matlab-da nəticə neçəyə bərabərdir, əgər x2=[3 -4 5;-6 5 3]; mx=0; for i=1:2 for j=1:3 if x2(i,j)>0 mx=mx+x2(i,j); end end end?",
+                         "options": {
+                              "A": "36",
+                              "B": "6",
+                              "C": "-10",
+                              "D": "26",
+                              "E": "16"
+                         },
+                         "correct_answer": "E"
+                    },
+                    {
+                         "question": "40. Matlab-da nəticə neçəyə bərabərdir, əgər a=[3 5; 6 7;8 2]; k=1; s1=0; while k<=3 for j=1:2 s1=s1+a(k,j); end; k=k+1; end?",
+                         "options": {
+                              "A": "[8   13   10]",
+                              "B": "41",
+                              "C": "[17 14]",
+                              "D": "31",
+                              "E": "51"
+                         },
+                         "correct_answer": "D"
+                    },
+                    {
+                         "question": "41. Matlab-da nəticə neçəyə bərabərdir, əgər [x]=fun1_2(4) function f=fun1_2(x) f=5*x^3-10+sin(0);?",
+                         "options": {
+                              "A": "141",
+                              "B": "320",
+                              "C": "310",
+                              "D": "300",
+                              "E": "350"
+                         },
+                         "correct_answer": "C"
+                    },
+                    {
+                         "question": "42. Verilənlər bazalannda makroslar nə üçündür?",
+                         "options": {
+                              "A": "Əmrlərin qrup şəklində avtomatik yerinə yetirilməsi üçün",
+                              "B": "Bazaya verilənlərin daxil edilməsi və onlara baxış üçün",
+                              "C": "Baza verilənlərinin saxlanması üçün",
+                              "D": "Baza verilənlərinin seçilməsi və onların emalı ücün",
+                              "E": "Emal olunmuş baza verilənlərinin çap qurğusunda çap etmək üçün"
+                         },
+                         "correct_answer": "A"
+                    },
+                    {
+                         "question": "43. Sənədin digər qovluqda saxlanması üçün hansı əmrdən istifadə edilir?",
+                         "options": {
+                              "A": "File – Save as...",
+                              "B": "File – Save as",
+                              "C": "File – Properties",
+                              "D": "File – Versions",
+                              "E": "File – New"
+                         },
+                         "correct_answer": "B"
+                    },
+                    {
+                         "question": "44. Word redaktorunda mətndə sətirlər arası məsafə hansı əmrlə təyin edilir",
+                         "options": {
+                              "A": "File-Rows",
+                              "B": "View-Indentation",
+                              "C": "Insert-Paragraph",
+                              "D": "Format-Paragraph",
+                              "E": "Home-Paragraph"
+                         },
+                         "correct_answer": "E"
+                    },
+                    {
+                         "question": "45. Reyasiya cədvəlinə xas olan xüsusiyyət:",
+                         "options": {
+                              "A": "verilənlər strukturunun sadəliyi",
+                              "B": "hər bir sütun unikal ada malikdir",
+                              "C": "verilənlərin istifadəçi üçün əlverişli olan cədvəl şəklində verilməsi",
+                              "D": "münasibətlər cəbrinin formal aparatının istifadə mümkünlüyü",
+                              "E": "verilənlərin emalı üçün relyasiya hesablamalarının istifadəsi"
+                         },
+                         "correct_answer": "B"
+                    },
+                    {
+                         "question": "46. Aşağıdakıların hansında istifadəçi proqramın cari iş rejimi, cari VB faylının adını və s haqqında məlumatlar tapa bilər?",
+                         "options": {
+                              "A": "fırlatma xətkeşi",
+                              "B": "menyu sətri",
+                              "C": "alətlər paneli",
+                              "D": "vəziyyət sətri",
+                              "E": "diqtə sətri"
+                         },
+                         "correct_answer": "D"
+                    },
+                    {
+                         "question": "47. VBİS-nin Windows-da iş üçün nəzərdə tutulmuş hansı tip sahəsi şəkillərin, qrafiklərin və cədvəllərin saxlanması üçün istifadə edilir?",
+                         "options": {
+                              "A": "universal",
+                              "B": "məntiqi",
+                              "C": "qeydlər",
+                              "D": "mətn",
+                              "E": "OLE obyekti" 
+                         },
+                         "correct_answer": "E"
+                    },
+                    {
+                         "question": "48. Bir çoxluğun hər bir elementinə ikinci çoxluğun bir neçə elementi qarşı qoyularsa, və ikinci çoxluğun hər bir elementinə birinci çoxluğun yalnız bir elementi qarşı qoyularsa, belə münasibət necə adlanır?",
+                         "options": {
+                              "A": "Birin-birə",
+                              "B": "Birin-çoxa",
+                              "C": "Çoxun-çoxa",
+                              "D": "Birin-aza",
+                              "E": "Azın-çoxa"
+                         },
+                         "correct_answer": "B"
+                    },
+                    {
+                         "question": "49. Matlab-da max(abs(x)) neçəyə bərabərdir, əgər k=0; for i=15:-2:-1 k=k+1; if i<7 x(k)=2*i^2+20; else x(k)=2*(-1)*i; end end?",
+                         "options": {
+                              "A": "70",
+                              "B": "-70",
+                              "C": "30",
+                              "D": "250",
+                              "E": "22"
+                         },
+                         "correct_answer": "A"
+                    },
+                    {
+                         "question": "50. Matlab-da nəticə neçəyə bərabərdir: x2=fzero(@fun1_1,[1 4]), əgər function f=fun1_1(x) f=x.^3-27;",
+                         "options": {
+                              "A": "3",
+                              "B": "2",
+                              "C": "1",
+                              "D": "4",
+                              "E": "3"
+                         },
+                         "correct_answer": "E"
+                    }
+               ]
+
+
+
+
+
+          let pageQuestion = 0;
+          for (let i = 0; i < 50; i++) {
+               Cavab.push(undefined);
+          }
+          console.log(Cavab);
+
+          for (let i = 0; i < 5; i++) {
+               let copyBox = testBox.cloneNode(true);
+               container.prepend(copyBox);
+          }
+          const alltestbox = document.querySelectorAll(".testBox");
+          const nn = document.querySelectorAll(".testBox .nn");
+
+          nn.forEach((box, index1) => {
+               let btnss = box.querySelectorAll(".btn");
+               let p = box.querySelectorAll("p");
+               let h3 = box.querySelector("h3");
+
+
+               btnss.forEach((btn, index) => {
+                    btn.onclick = () => {
+                         btnss.forEach(btn => {
+                              btn.style.backgroundColor = "rgb(17, 73, 177)";
+                              btn.style.boxShadow = "0px 0px";
+                         })
+                         btn.style.backgroundColor = "Green";
+                         btn.style.boxShadow = "0px 0px 2px 4px rgba(31, 172, 31, 0.7)";
+                         Cavab[(index1 - 1) + pageQuestion] = btn.textContent;
+                         console.log(Cavab);
+                    }
+               })
+
+          })
+
+          alltestbox[0].remove();
+
+          const allbox = document.querySelectorAll(".nn");
+          const alltest = document.querySelectorAll(".testBox")
+          for (let i = 0; i < 5; i++) {
+               let h3 = alltest[i].querySelector("h3");
+               let p = allbox[i].querySelectorAll("p");
+               h3.innerHTML = DATA[i].question;
+               p[0].innerText = DATA[i].options.A;
+               p[1].innerText = DATA[i].options.B;
+               p[2].innerText = DATA[i].options.C;
+               p[3].innerText = DATA[i].options.D;
+               p[4].innerText = DATA[i].options.E;
+          }
+          let nextCount = 0;
+          function next(e) {
+               pageQuestion += 5;
+               window.scrollTo(0, 0);
+               console.log(pageQuestion);
+               nextCount = nextCount + 5;
+               console.log(nextCount);
+               let result = document.querySelector(".Result");
+               if (pageQuestion > 45) {
+                    container.style.display = "none";
+                    result.style.display = "Grid";
+
+                    let spans = result.querySelectorAll("span");
+
+                    let dogru = 0;
+                    let sehv = 0;
+                    for (let i = 0; i < Cavab.length; i++) {
+                         if (Cavab[i] == DATA[i].correct_answer) {
+                              dogru++;
+                         } else {
+                              sehv++;
+                         }
+
+                    }
+                    spans[1].innerText = dogru;
+                    spans[3].innerText = sehv;
+                    spans[5].innerText = dogru * 2 + ",00 %";
+               }
+               if (nextCount >= 45) {
+                    e.style.backgroundColor = "#10ad10";
+                    e.innerText = "Finish"
+                    console.log(e);
+                    nextCount = 45;
+               }
+
+
+
+               let btnss = document.querySelectorAll(".btn");
+               btnss.forEach(btn => {
+                    btn.style.backgroundColor = "rgb(17, 73, 177)";
+                    btn.style.boxShadow = "0px 0px";
+               })
+
+               const allbox = document.querySelectorAll(".nn");
+               const alltest = document.querySelectorAll(".testBox");
+               let sayy = -1;
+               alltest.forEach(box => {
+                    let h3 = box.querySelector("h3").textContent;
+                    let buttons = box.querySelectorAll(".btn");
+                    sayy++;
+                    for (let i = 0; i < buttons.length; i++) {
+                         if (buttons[i].textContent == Cavab[sayy + pageQuestion]) {
+                              buttons[i].style.backgroundColor = "Green";
+                              buttons[i].style.boxShadow = "0px 0px 2px 4px rgba(31, 172, 31, 0.7)";
+
+                         }
+                    }
+
+               })
+
+               for (let i = 0; i < 5 + nextCount; i++) {
+                    let h3 = alltest[i].querySelector("h3");
+                    let p = allbox[i].querySelectorAll("p");
+                    h3.innerText = DATA[nextCount + i].question;
+                    p[0].innerText = DATA[nextCount + i].options.A;
+                    p[1].innerText = DATA[nextCount + i].options.B;
+                    p[2].innerText = DATA[nextCount + i].options.C;
+                    p[3].innerText = DATA[nextCount + i].options.D;
+                    p[4].innerText = DATA[nextCount + i].options.E;
+               }
+
+          }
+
+          function prev() {
+               nextCount = nextCount - 5;
+               pageQuestion -= 5;
+               window.scrollTo(0, 0);
+               if (pageQuestion <= 0) {
+                    pageQuestion = 0;
+               }
+               console.log(pageQuestion);
+               if (nextCount <= 0) {
+                    nextCount = 0;
+               }
+               let next = document.querySelector(".next");
+               next.style.backgroundColor = "rgb(17, 73, 177)";
+               next.innerText = "İrəli"
+               let btnss = document.querySelectorAll(".btn");
+               btnss.forEach(btn => {
+                    btn.style.backgroundColor = "rgb(17, 73, 177)";
+                    btn.style.boxShadow = "0px 0px";
+
+               })
+
+
+
+               const allbox = document.querySelectorAll(".nn");
+               const alltest = document.querySelectorAll(".testBox");
+               let sayy = -1;
+               alltest.forEach(box => {
+                    let h3 = box.querySelector("h3").textContent;
+                    let buttons = box.querySelectorAll(".btn");
+                    sayy++;
+                    for (let i = 0; i < buttons.length; i++) {
+                         if (buttons[i].textContent == Cavab[sayy + pageQuestion]) {
+                              buttons[i].style.backgroundColor = "Green";
+                              buttons[i].style.boxShadow = "0px 0px 2px 4px rgba(31, 172, 31, 0.7)";
+                         }
+                    }
+
+               })
+
+               for (let i = 0; i < 5 + nextCount; i++) {
+                    let h3 = alltest[i].querySelector("h3");
+                    let p = allbox[i].querySelectorAll("p");
+                    h3.innerText = DATA[nextCount + i].question;
+                    p[0].innerText = DATA[nextCount + i].options.A;
+                    p[1].innerText = DATA[nextCount + i].options.B;
+                    p[2].innerText = DATA[nextCount + i].options.C;
+                    p[3].innerText = DATA[nextCount + i].options.D;
+                    p[4].innerText = DATA[nextCount + i].options.E;
+               }
+
+          }
+
+          let check = -1;
+          function quizWiev() {
+               result.style.display = "none";
+               resultquiz.style.display = "flex";
+
+               DATA.forEach(obj => {
+                    check++;
+                    let rsbox = document.createElement("div");
+
+                    let h3 = document.createElement("h3");
+                    let pA = document.createElement("p");
+                    let pB = document.createElement("p");
+                    let pC = document.createElement("p");
+                    let pD = document.createElement("p");
+                    let pE = document.createElement("p");
+
+                    h3.innerText = obj.question;
+                    pA.innerText = "A) " + obj.options.A;
+                    pB.innerText = "B) " + obj.options.B;
+                    pC.innerText = "C) " + obj.options.C;
+                    pD.innerText = "D) " + obj.options.D;
+                    pE.innerText = "E) " + obj.options.E;
+
+
+
+                    rsbox.appendChild(h3);
+                    rsbox.appendChild(pA);
+                    rsbox.appendChild(pB);
+                    rsbox.appendChild(pC);
+                    rsbox.appendChild(pD);
+                    rsbox.appendChild(pE);
+                    resultquiz.appendChild(rsbox);
+
+                    if (obj.correct_answer == Cavab[check]) {
+                         h3.style.backgroundColor = "#1794178e";
+                         pA.style.backgroundColor = "#1794178e";
+                         pB.style.backgroundColor = "#1794178e";
+                         pC.style.backgroundColor = "#1794178e";
+                         pD.style.backgroundColor = "#1794178e";
+                         pE.style.backgroundColor = "#1794178e";
+
+                         let allp = rsbox.querySelectorAll("p");
+
+                         allp.forEach(p => {
+                              if (p.textContent[0] == Cavab[check]) {
+                                   p.innerHTML += `<i class="fa-solid fa-check" ></i>`
+                              }
+                         })
+
+
+                         console.log(allp)
+                    } else {
+                         h3.style.backgroundColor = "#b1161693";
+                         pA.style.backgroundColor = "#b1161693";
+                         pB.style.backgroundColor = "#b1161693";
+                         pC.style.backgroundColor = "#b1161693";
+                         pD.style.backgroundColor = "#b1161693";
+                         pE.style.backgroundColor = "#b1161693";
+
+                         let allp = rsbox.querySelectorAll("p");
+
+                         allp.forEach(p => {
+                              if (p.textContent[0] == Cavab[check]) {
+                                   p.innerHTML += `<i class="fa-solid fa-xmark" ></i>`
+                              }
+                              if (p.textContent[0] == obj.correct_answer) {
+                                   p.innerHTML += `<i class="fa-solid fa-check" ></i>`
+
+                              }
+                         })
+                    }
+
+               })
+
+          }
+
+
+     </script>
+</body>
+
+</html>
